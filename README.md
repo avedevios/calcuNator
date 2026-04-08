@@ -26,6 +26,8 @@ CalculatorViewModel.swift — mediator between engine and view
 CalculatorView.swift      — UI only
 ```
 
+The core arithmetic logic is powered by a custom **Objective-C framework** (`CalculatorFramework`), integrated into Swift via a bridging header. This demonstrates Swift–ObjC interoperability in a real project setup.
+
 ## Requirements
 
 - iOS 18.2+

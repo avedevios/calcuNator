@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6DF0FFED2D7E14E8000C8D80"
-               BuildableName = "df-challenge-calc.app"
-               BlueprintName = "df-challenge-calc"
-               ReferencedContainer = "container:df-challenge-calc.xcodeproj">
+               BuildableName = "calcuNator.app"
+               BlueprintName = "calcuNator"
+               ReferencedContainer = "container:calcuNator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6DF0FFED2D7E14E8000C8D80"
-            BuildableName = "df-challenge-calc.app"
-            BlueprintName = "df-challenge-calc"
-            ReferencedContainer = "container:df-challenge-calc.xcodeproj">
+            BuildableName = "calcuNator.app"
+            BlueprintName = "calcuNator"
+            ReferencedContainer = "container:calcuNator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6DF0FFED2D7E14E8000C8D80"
-            BuildableName = "df-challenge-calc.app"
-            BlueprintName = "df-challenge-calc"
-            ReferencedContainer = "container:df-challenge-calc.xcodeproj">
+            BuildableName = "calcuNator.app"
+            BlueprintName = "calcuNator"
+            ReferencedContainer = "container:calcuNator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

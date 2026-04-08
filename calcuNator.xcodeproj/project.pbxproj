@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D17C9402F85D877003ABB4C /* CalculatorFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D17C93F2F85D877003ABB4C /* CalculatorFramework.m */; };
 		6D617FFF2D80FB4700431EBD /* libCalculatorFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D617FFE2D80FB4700431EBD /* libCalculatorFramework.a */; };
 /* End PBXBuildFile section */
 
@@ -24,16 +25,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D17C93F2F85D877003ABB4C /* CalculatorFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorFramework.m; sourceTree = "<group>"; };
 		6D617FFE2D80FB4700431EBD /* libCalculatorFramework.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCalculatorFramework.a; sourceTree = "<group>"; };
 		6D6180032D80FDED00431EBD /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		6D6180052D80FEB100431EBD /* CalculatorFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorFramework.h; sourceTree = "<group>"; };
-		6DF0FFEE2D7E14E8000C8D80 /* df-challenge-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "df-challenge-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF0FFEE2D7E14E8000C8D80 /* calcuNator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calcuNator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6DF0FFF02D7E14E8000C8D80 /* df-challenge-calc */ = {
+		6DF0FFF02D7E14E8000C8D80 /* calcuNator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "df-challenge-calc";
+			path = calcuNator;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -53,9 +55,10 @@
 		6DF0FFE52D7E14E8000C8D80 = {
 			isa = PBXGroup;
 			children = (
+				6D17C93F2F85D877003ABB4C /* CalculatorFramework.m */,
 				6D6180052D80FEB100431EBD /* CalculatorFramework.h */,
 				6D6180032D80FDED00431EBD /* Bridging-Header.h */,
-				6DF0FFF02D7E14E8000C8D80 /* df-challenge-calc */,
+				6DF0FFF02D7E14E8000C8D80 /* calcuNator */,
 				6DF0FFEF2D7E14E8000C8D80 /* Products */,
 				6D617FFE2D80FB4700431EBD /* libCalculatorFramework.a */,
 			);
@@ -64,7 +67,7 @@
 		6DF0FFEF2D7E14E8000C8D80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DF0FFEE2D7E14E8000C8D80 /* df-challenge-calc.app */,
+				6DF0FFEE2D7E14E8000C8D80 /* calcuNator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,9 +75,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6DF0FFED2D7E14E8000C8D80 /* df-challenge-calc */ = {
+		6DF0FFED2D7E14E8000C8D80 /* calcuNator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DF0FFFC2D7E14E9000C8D80 /* Build configuration list for PBXNativeTarget "df-challenge-calc" */;
+			buildConfigurationList = 6DF0FFFC2D7E14E9000C8D80 /* Build configuration list for PBXNativeTarget "calcuNator" */;
 			buildPhases = (
 				6DF0FFEA2D7E14E8000C8D80 /* Sources */,
 				6DF0FFEB2D7E14E8000C8D80 /* Frameworks */,
@@ -86,13 +89,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				6DF0FFF02D7E14E8000C8D80 /* df-challenge-calc */,
+				6DF0FFF02D7E14E8000C8D80 /* calcuNator */,
 			);
-			name = "df-challenge-calc";
+			name = calcuNator;
 			packageProductDependencies = (
 			);
-			productName = "df-challenge-calc";
-			productReference = 6DF0FFEE2D7E14E8000C8D80 /* df-challenge-calc.app */;
+			productName = calcuNator;
+			productReference = 6DF0FFEE2D7E14E8000C8D80 /* calcuNator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6DF0FFE92D7E14E8000C8D80 /* Build configuration list for PBXProject "df-challenge-calc" */;
+			buildConfigurationList = 6DF0FFE92D7E14E8000C8D80 /* Build configuration list for PBXProject "calcuNator" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -125,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6DF0FFED2D7E14E8000C8D80 /* df-challenge-calc */,
+				6DF0FFED2D7E14E8000C8D80 /* calcuNator */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D17C9402F85D877003ABB4C /* CalculatorFramework.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,12 +284,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"df-challenge-calc/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"calcuNator/Preview Content\"";
 				DEVELOPMENT_TEAM = 65DRR277K2;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/df-challenge-calc",
+					"$(PROJECT_DIR)/calcuNator",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -323,12 +327,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"df-challenge-calc/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"calcuNator/Preview Content\"";
 				DEVELOPMENT_TEAM = 65DRR277K2;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/df-challenge-calc",
+					"$(PROJECT_DIR)/calcuNator",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -360,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6DF0FFE92D7E14E8000C8D80 /* Build configuration list for PBXProject "df-challenge-calc" */ = {
+		6DF0FFE92D7E14E8000C8D80 /* Build configuration list for PBXProject "calcuNator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DF0FFFA2D7E14E9000C8D80 /* Debug */,
@@ -369,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DF0FFFC2D7E14E9000C8D80 /* Build configuration list for PBXNativeTarget "df-challenge-calc" */ = {
+		6DF0FFFC2D7E14E9000C8D80 /* Build configuration list for PBXNativeTarget "calcuNator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DF0FFFD2D7E14E9000C8D80 /* Debug */,

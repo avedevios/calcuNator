@@ -11,6 +11,7 @@
 
 - (void)inputNumber:(double)number;
 - (void)setOperation:(NSString *)operation;
+- (void)setTrigFunction:(NSString *)function; // "sin", "cos", "tan"
 - (double)calculate;
 - (double)calculateTrigonometric;
 - (void)clear;

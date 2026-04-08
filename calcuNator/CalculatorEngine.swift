@@ -31,16 +31,14 @@ class CalculatorEngine {
         return result
     }
 
-    // MARK: - Trigonometry (input in degrees)
+    // MARK: - Trigonometry (input in degrees, conversion handled in ObjC)
 
     func trig(_ fn: String, degrees: Double) -> Double {
-        let radians = degrees * .pi / 180
-        switch fn {
-        case "sin": return sin(radians)
-        case "cos": return cos(radians)
-        case "tan": return tan(radians)
-        default:    return .nan
-        }
+        framework.inputNumber(degrees)
+        framework.setTrigFunction(fn)
+        let result = framework.calculateTrigonometric()
+        framework.clear()
+        return result
     }
 
     // MARK: - Formatting

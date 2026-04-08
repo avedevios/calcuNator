@@ -12,7 +12,8 @@
     double _firstNumber;
     double _secondNumber;
     NSString *_operation;
-    int _inputCount; // tracks whether we're setting first or second number
+    NSString *_trigFunction; // "sin", "cos", "tan"
+    int _inputCount;
 }
 
 - (instancetype)init {
@@ -36,6 +37,10 @@
     _operation = operation;
 }
 
+- (void)setTrigFunction:(NSString *)function {
+    _trigFunction = function;
+}
+
 - (double)calculate {
     if ([_operation isEqualToString:@"+"]) return _firstNumber + _secondNumber;
     if ([_operation isEqualToString:@"-"]) return _firstNumber - _secondNumber;
@@ -48,7 +53,11 @@
 }
 
 - (double)calculateTrigonometric {
-    // Trig is handled in CalculatorEngine (degrees → radians conversion)
+    // Input is expected in degrees, convert to radians before calculation
+    double radians = _firstNumber * M_PI / 180.0;
+    if ([_trigFunction isEqualToString:@"sin"]) return sin(radians);
+    if ([_trigFunction isEqualToString:@"cos"]) return cos(radians);
+    if ([_trigFunction isEqualToString:@"tan"]) return tan(radians);
     return NAN;
 }
 
@@ -56,6 +65,7 @@
     _firstNumber = 0;
     _secondNumber = 0;
     _operation = nil;
+    _trigFunction = nil;
     _inputCount = 0;
 }
 

@@ -40,4 +40,19 @@ Open `calcuNator.xcodeproj` in Xcode and run on simulator or device.
 
 ## Tests
 
-Unit tests cover `CalculatorEngine` and `CalculatorViewModel`. Run with `Cmd+U`.
+52 unit tests written with Swift Testing framework, covering:
+
+**CalculatorEngine**
+- Arithmetic: addition, subtraction, multiplication, division
+- Edge cases: division by zero, multiply by zero, negative numbers, very small decimals
+- Trigonometry: sin/cos/tan in degrees, negative angles
+- Formatting: integers, decimals, negative numbers, zero, NaN, infinity, large numbers without scientific notation
+
+**CalculatorViewModel**
+- Input: digits, dot, leading zero prevention, double dot ignored
+- Operations: basic calculation, operator replacement, chained calculations
+- Trig via VM: correct result and operationDisplay with degree symbol
+- Error handling: division by zero shows "Error", equals without operands doesn't crash
+- State: clear resets display and operationDisplay, new input after result resets display
+
+Run with `Cmd+U` in Xcode.

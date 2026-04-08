@@ -28,4 +28,18 @@ enum CalcButton: Hashable {
         default:                  return .gray.opacity(0.2)
         }
     }
+
+    // Haptic feedback belongs to the button, not the View
+    func triggerHaptic() {
+        switch self {
+        case .digit, .dot:
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        case .operation, .trig:
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        case .equals:
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+        case .clear:
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        }
+    }
 }

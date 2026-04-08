@@ -1,5 +1,31 @@
 import SwiftUI
 
+// MARK: - Button View
+
+struct CalcButtonView: View {
+    let button: CalcButton
+    let width: CGFloat
+    let height: CGFloat
+    let font: Font
+    let action: () -> Void
+
+    var body: some View {
+        Button {
+            button.triggerHaptic()
+            action()
+        } label: {
+            Text(button.label)
+                .font(font)
+                .frame(width: width, height: height)
+                .foregroundColor(.white)
+                .background(button.color)
+                .cornerRadius(height / 2)
+        }
+    }
+}
+
+// MARK: - Calculator View
+
 struct CalculatorView: View {
     @StateObject private var vm = CalculatorViewModel()
 
@@ -44,16 +70,13 @@ struct CalculatorView: View {
                     ForEach(buttons, id: \.self) { row in
                         HStack(spacing: 10) {
                             ForEach(row, id: \.self) { button in
-                                Button {
-                                    triggerHaptic(for: button)
+                                CalcButtonView(
+                                    button: button,
+                                    width: buttonWidth,
+                                    height: buttonHeight,
+                                    font: buttonFont
+                                ) {
                                     vm.handle(button)
-                                } label: {
-                                    Text(button.label)
-                                        .font(buttonFont)
-                                        .frame(width: buttonWidth, height: buttonHeight)
-                                        .foregroundColor(.white)
-                                        .background(button.color)
-                                        .cornerRadius(buttonHeight / 2)
                                 }
                             }
                         }
@@ -63,35 +86,15 @@ struct CalculatorView: View {
             }
         }
     }
-
-    // Haptic feedback intensity varies by button type
-    private func triggerHaptic(for button: CalcButton) {
-        switch button {
-        case .digit, .dot:
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        case .operation, .trig:
-            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-        case .equals:
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-        case .clear:
-            UINotificationFeedbackGenerator().notificationOccurred(.warning)
-        }
-    }
 }
 
 // MARK: - App Entry
-
-struct ContentView: View {
-    var body: some View {
-        CalculatorView()
-    }
-}
 
 @main
 struct CalculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CalculatorView()
         }
     }
 }

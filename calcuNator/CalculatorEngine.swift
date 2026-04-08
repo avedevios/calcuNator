@@ -7,6 +7,19 @@ class CalculatorEngine {
 
     private let framework = CalculatorFramework()
 
+    // Created once and reused — NumberFormatter is expensive to instantiate
+    private lazy var formatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        f.maximumFractionDigits = 10
+        f.minimumFractionDigits = 0
+        f.usesGroupingSeparator = false
+        f.notANumberSymbol = "Error"
+        f.positiveInfinitySymbol = "Error"
+        f.negativeInfinitySymbol = "Error"
+        return f
+    }()
+
     // MARK: - Arithmetic
 
     func evaluate(first: Double, operation: String, second: Double) -> Double {
@@ -34,14 +47,6 @@ class CalculatorEngine {
 
     func format(_ value: Double) -> String {
         if value.isNaN || value.isInfinite { return "Error" }
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 10
-        formatter.minimumFractionDigits = 0
-        formatter.usesGroupingSeparator = false
-        formatter.notANumberSymbol = "Error"
-        formatter.positiveInfinitySymbol = "Error"
-        formatter.negativeInfinitySymbol = "Error"
         return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
     }
 }

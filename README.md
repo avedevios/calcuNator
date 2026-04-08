@@ -1,5 +1,7 @@
 # calcuNator
 
+> Test assignment for [DGTL Factory](https://dgtl-factory.com)
+
 A iOS calculator app built with SwiftUI, featuring basic arithmetic and trigonometric functions.
 
 ## Features

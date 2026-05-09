@@ -267,6 +267,31 @@ struct CalculatorViewModelTests {
         #expect(vm.display == "20")
     }
 
+    @Test func consecutiveOperationsEvaluatePreviousOperation() {
+        let vm = CalculatorViewModel()
+        // Apple Calculator basic mode evaluates pending binary operations as the next operator is pressed.
+        vm.handle(.digit("2"))
+        vm.handle(.operation("+"))
+        vm.handle(.digit("3"))
+        vm.handle(.operation("×"))
+        vm.handle(.digit("4"))
+        vm.handle(.equals)
+        #expect(vm.display == "20")
+    }
+
+    @Test func multipleConsecutiveOperationsWithoutEquals() {
+        let vm = CalculatorViewModel()
+        vm.handle(.digit("2"))
+        vm.handle(.operation("+"))
+        vm.handle(.digit("3"))
+        vm.handle(.operation("+"))
+        vm.handle(.digit("4"))
+        vm.handle(.operation("+"))
+        vm.handle(.digit("5"))
+        vm.handle(.equals)
+        #expect(vm.display == "14")
+    }
+
     @Test func equalsWithoutOperationDoesNotCrash() {
         let vm = CalculatorViewModel()
         vm.handle(.digit("5"))

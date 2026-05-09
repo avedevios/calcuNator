@@ -14,14 +14,17 @@ class CalculatorViewModel: ObservableObject {
 
     func handle(_ button: CalcButton) {
         if state.operationCompleted && button != .equals && button != .clear {
-            // Capture result as firstNumber before reset if chaining with an operation
-            if case .operation = button {
-                state.firstNumber = Double(display)
-            }
-            display = ""
+            let result = Double(display)
+            state.reset()
             operationDisplay = ""
             showOperationDisplay = false
-            state.operationCompleted = false
+
+            if case .operation = button {
+                state.firstNumber = result
+                display = engine.format(result ?? 0)
+            } else {
+                display = "0"
+            }
         }
 
         switch button {
@@ -78,12 +81,23 @@ class CalculatorViewModel: ObservableObject {
     }
 
     private func applyOperation(_ op: String) {
-        if !state.isTypingNumber && !state.operationUsed && state.firstNumber == nil { return }
-        // Only update firstNumber from display if not already captured from a previous result
-        if state.isTypingNumber || state.operationUsed {
-            let base = display.split(separator: " ").first.map(String.init) ?? display
-            state.firstNumber = Double(base) ?? state.firstNumber
+        guard display != "Error" else { return }
+
+        if let pendingOperation = state.operation,
+           let firstNumber = state.firstNumber {
+            if state.isTypingNumber {
+                guard let secondNumber = currentInputNumber() else { return }
+                let result = engine.evaluate(first: firstNumber, operation: pendingOperation, second: secondNumber)
+                state.firstNumber = result
+                display = engine.format(result)
+            }
+            // If the user taps operators back-to-back, Apple Calculator replaces the pending operator.
+        } else if let number = currentInputNumber() {
+            state.firstNumber = number
+        } else {
+            return
         }
+
         state.operation = op
         let displayBase = engine.format(state.firstNumber ?? 0)
         display = displayBase + " " + op + " "
@@ -92,6 +106,7 @@ class CalculatorViewModel: ObservableObject {
         showOperationDisplay = false
         state.pointUsed = false
         state.operationUsed = true
+        state.operationCompleted = false
     }
 
     private func applyTrig(_ fn: String) {
@@ -106,7 +121,7 @@ class CalculatorViewModel: ObservableObject {
     private func applyEquals() {
         guard let firstNumber = state.firstNumber,
               let operation = state.operation,
-              let secondNumber = Double(display.split(separator: " ").last ?? "") else {
+              let secondNumber = currentInputNumber() else {
             state.isTypingNumber = false
             return
         }
@@ -124,5 +139,12 @@ class CalculatorViewModel: ObservableObject {
         operationDisplay = ""
         showOperationDisplay = false
         state.reset()
+    }
+
+    private func currentInputNumber() -> Double? {
+        if let lastToken = display.split(separator: " ").last {
+            return Double(lastToken)
+        }
+        return Double(display)
     }
 }
